@@ -1,24 +1,30 @@
 <script>
-    var arrRPS;
-    function computerPlay(){
-        arrRPS = ["Rock", "Paper", "Scissors"]  
-        const element = arrRPS[Math.floor(Math.random()*arrRPS.length)];
-        console.log(element);
-    }
+    var arrRPS,userChoice,computerSelection;
+    
+    //Computer Selection 
+    arrRPS = ["Rock", "Paper", "Scissors"]  
+    computerSelection = arrRPS[Math.floor(Math.random()*arrRPS.length)];
+    console.log(computerSelection);
+    
 
-    var computerSelection = computerPlay();
-    var playerSelection = 'rock';
-    console.log("computer selection" + " " + computerSelection);
-    console.log("player selection" + " " + playerSelection);
+    //User Selection 
+    userChoice = 'rock';
+    function userSelection(userChoice) {
+        userChoice = event.srcElement.innerHTML;
+    }
     
     
-    function playSingleRound(computerSelection,playerSelection) {
+    function playRound(userChoice, computerSelection) {
+	    console.log(
+            userChoice + " : " + computerSelection
+        );
         
     }
 
     
+    playRound(userChoice, computerSelection);
 
-    playSingleRound();
+
 </script>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +35,14 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    
+    
     <div>
+        <button id="btnRock" onclick="userSelection()" value="Rock">Rock</button>
+        <button id="btnPaper" onclick="userSelection()" value="Paper">Paper</button>
+        <button id="btnScissors" onclick="userSelection()" value="Scissors">Scissors</button>
+    </div>
+    <div id="userChoiceDiv">
         
     </div>
 </body>
